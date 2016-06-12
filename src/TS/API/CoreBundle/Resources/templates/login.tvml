@@ -1,0 +1,14 @@
+<document>
+   <formTemplate>
+      <banner>
+         <img src="path to images on your server/Car_Movie_800X400.png" width="800" height="400"/>
+         <description>Enter email for access</description>
+      </banner>
+      <textField>tclark@example.com</textField>
+      <footer>
+         <button>
+            <text>Submit</text>
+         </button>
+      </footer>
+   </formTemplate>
+</document>
