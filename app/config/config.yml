@@ -41,6 +41,8 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
+    default_connection: default
+    connections:
         driver:   pdo_mysql
         host:     "%database_host%"
         port:     "%database_port%"
@@ -48,11 +50,25 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
-
+    second:
+        driver:   pdo_mysql
+        host:     "%database_host2%"
+        port:     "%database_port2%"
+        dbname:   "%database_name2%"
+        user:     "%database_user2%"
+        password: "%database_password2%"
+        charset:  UTF8
     orm:
+        default_entity_manager: default
         auto_generate_proxy_classes: "%kernel.debug%"
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        entity_managers:
+            default:
+                connection: default
+                mappings:
+                    TSAPICoreBundle: ~
+                    FOSUserBundle: ~
+            second:
+                connection: second
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -61,6 +77,13 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+nelmio_api_doc: ~
+
+fos_rest:
+    routing_loader:
+        default_format: json                            # All responses should be JSON formated
+        include_format: false
 
 fos_user:
     db_driver: orm

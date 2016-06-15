@@ -2,16 +2,40 @@
 
 namespace TS\API\CoreBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use FOS\RestBundle\Controller\Annotations,
+    FOS\RestBundle\Controller\FOSRestController,
+    FOS\RestBundle\Request\ParamFetcherInterface,
+    FOS\RestBundle\View\View,
+    FOS\RestBundle\View\RouteRedirectView,
+    FOS\RestBundle\Util\Codes;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Symfony\Component\HttpFoundation\Response;
 
-class DefaultController extends Controller
+class DefaultController extends FOSRestController
 {
     /**
-     * @Route("/")
+     * @Annotations\Post("/test")
+     *
+     * @ApiDoc(
+     *   section = "WS",
+     *   resource = true,
+     *     statusCodes = {
+     *         201 = "Created",
+     *         400 = "Bad Request: Errores en input",
+     *         405 = "Method Not Allowed"
+     *     }
+     * )
+     *
+     * @Annotations\View(
+     *     statusCode = Codes::HTTP_BAD_REQUEST,
+     *     templateVar = "form"
+     * )
      */
-    public function indexAction()
+    public function getDemosAction()
     {
-        return $this->render('TSAPICoreBundle:Default:index.html.twig');
+        $data = array("hello" => "world");
+        $view = $this->view($data);
+        return $this->handleView($view);
     }
 }

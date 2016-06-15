@@ -19,8 +19,13 @@ class AppKernel extends Kernel
             new TS\API\CoreBundle\TSAPICoreBundle(),
             // Extra Bundles
             new FOS\UserBundle\FOSUserBundle(),
-            new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
             new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            
+
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

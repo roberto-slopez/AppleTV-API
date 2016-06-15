@@ -1,7 +1,7 @@
 tsapi_core:
-    resource: "@TSAPICoreBundle/Controller/"
-    type:     annotation
-    prefix:   /
+    type: rest
+    resource: "@TSAPICoreBundle/Resources/config/routing.yml"
+    prefix:   /api
 
 fos_oauth_server_token:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
@@ -14,3 +14,7 @@ fos_user_security:
 
 fos_user_security_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

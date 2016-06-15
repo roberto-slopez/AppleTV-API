@@ -1,0 +1,4 @@
+ts_test:
+    resource: "@TSAPICoreBundle/Controller/DefaultController.php"
+    type:     rest
+    prefix:   /ts
