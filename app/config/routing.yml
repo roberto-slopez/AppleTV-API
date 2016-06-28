@@ -1,7 +1,7 @@
 tsapi_core:
     type: rest
     resource: "@TSAPICoreBundle/Resources/config/routing.yml"
-    prefix:   /api
+    prefix:   /ts
 
 fos_oauth_server_token:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"

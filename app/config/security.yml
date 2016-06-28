@@ -50,6 +50,3 @@ security:
 
     access_control:
         - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
-#        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/, role: ROLE_SELLER }
-#        - { path: ^/admin, role: ROLE_ADMIN }

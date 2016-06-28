@@ -2,3 +2,8 @@ ts_test:
     resource: "@TSAPICoreBundle/Controller/DefaultController.php"
     type:     rest
     prefix:   /ts
+
+ts_template:
+    resource: "@TSAPICoreBundle/Controller/TemplateController.php"
+    type:     rest
+    prefix:   /ts
